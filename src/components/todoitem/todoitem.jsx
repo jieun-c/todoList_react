@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 
-class InputItem extends Component {
+class ToDoItem extends Component {
   render() {
-    const { key, todo } = this.props.todos;
+    const { key, toDo } = this.props.toDos;
     return (
       <li>
         <input type="checkbox" id={key} />
         <label htmlFor={key}>
-          <span>{todo}</span>
+          <span>{toDo}</span>
         </label>
         <span>❌</span>
       </li>
@@ -15,4 +15,4 @@ class InputItem extends Component {
   }
 }
 
-export default InputItem;
+export default ToDoItem;

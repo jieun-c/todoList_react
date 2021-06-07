@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import styles from "./app.module.css";
-import Clock from "./clock/clock";
-import ToDoList from "./todolist/todolist";
-import InputName from "./input_name/input_name";
+import Clock from "./components/clock/clock";
+import ToDoList from "./components/todolist/todolist";
+import InputUser from "./components/input_user/input_user";
 
 class App extends Component {
   state = {
     currentUser: localStorage.getItem("currentUser"),
   };
 
-  pushName = (name) => {
-    localStorage.setItem("currentUser", name);
-    this.setState({ currentUser: name });
+  pushUser = (user) => {
+    localStorage.setItem("currentUser", user);
+    this.setState({ currentUser: user });
   };
 
   render() {
@@ -22,7 +22,7 @@ class App extends Component {
         {currentUser ? (
           <ToDoList name={currentUser} />
         ) : (
-          <InputName pushName={this.pushName} />
+          <InputUser pushUser={this.pushUser} />
         )}
       </div>
     );
