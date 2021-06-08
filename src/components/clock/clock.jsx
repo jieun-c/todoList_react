@@ -26,7 +26,7 @@ class Clock extends Component {
   render() {
     const { date } = this.state;
     return (
-      <div className={styles.clock}>
+      <header className={styles.clock}>
         <div className={styles.time}>
           {`${String(date.getHours()).padStart(2, "0")} : 
             ${String(date.getMinutes()).padStart(2, "0")}`}
@@ -37,7 +37,7 @@ class Clock extends Component {
             "0"
           )}-${String(date.getDate()).padStart(2, "0")}`}
         </div>
-      </div>
+      </header>
     );
   }
 }

@@ -13,12 +13,12 @@ class InputUser extends Component {
 
   render() {
     return (
-      <div className="userBox">
+      <section className="userBox">
         <h2>What's your name?</h2>
         <form ref={this.formRef} onSubmit={this.handleSubmit}>
           <input type="text" ref={this.inputRef} />
         </form>
-      </div>
+      </section>
     );
   }
 }
