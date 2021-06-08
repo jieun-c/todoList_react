@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 class ToDoItem extends Component {
-  handleReset = () => {
+  handleRemove = () => {
     this.props.onToDo(this.props.toDo);
   };
 
@@ -13,7 +13,7 @@ class ToDoItem extends Component {
         <label htmlFor={key}>
           <span>{toDo}</span>
         </label>
-        <button onClick={this.handleReset}>❌</button>
+        <button onClick={this.handleRemove}>❌</button>
       </li>
     );
   }
