@@ -2,9 +2,7 @@ import React, { Component } from "react";
 
 class ToDoItem extends Component {
   handleReset = () => {
-    //눌린 키값 / 빙글빙글 키값 :: 비교
-
-    console.log(this.props.toDo);
+    this.props.onToDo(this.props.toDo);
   };
 
   render() {

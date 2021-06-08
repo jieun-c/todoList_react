@@ -20,6 +20,14 @@ class ToDoList extends Component {
     this.setState({ toDos });
   };
 
+  popToDo = (toDo) => {
+    // 모든 키값 / 눌린 키값 :: 비교
+    const toDos = this.state.toDos.filter((item) => item.key !== toDo.key);
+
+    localStorage.setItem("toDos", JSON.stringify(toDos));
+    this.setState({ toDos });
+  };
+
   render() {
     const { toDos } = this.state;
     return (
@@ -32,11 +40,7 @@ class ToDoList extends Component {
           <ul>
             {toDos &&
               toDos.map((item) => (
-                <ToDoItem
-                  key={item.key}
-                  toDo={item}
-                  popToDo={this.handleReset}
-                />
+                <ToDoItem key={item.key} toDo={item} onToDo={this.popToDo} />
               ))}
           </ul>
         </div>
