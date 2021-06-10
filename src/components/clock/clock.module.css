@@ -5,14 +5,35 @@
 }
 
 .time {
-  font-size: 8rem;
   color: white;
   text-shadow: 2px 2px 2px black;
 }
 
 .days {
-  font-size: 1.2rem;
   color: white;
-  text-shadow: 1px 1px 2px black;
+  text-shadow: 2px 2px 2px black;
+}
+
+.clock.wyn {
+  padding: 7em 0 4em;
+}
+.wyn > .time {
+  font-size: 8rem;
+}
+.wyn > .days {
+  font-size: 1.2rem;
   margin-top: 0.5em;
+}
+
+.clock.hello {
+  align-items: flex-end;
+  margin: 2em;
+}
+.hello > .time {
+  font-size: 1.5rem;
+  margin-right: 0.3em;
+}
+.hello > .days {
+  font-size: 1rem;
+  margin-top: 0.2em;
 }

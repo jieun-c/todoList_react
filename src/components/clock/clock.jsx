@@ -25,8 +25,10 @@ class Clock extends Component {
 
   render() {
     const { date } = this.state;
+    const { display } = this.props;
+    const displayType = display === "hello" ? styles.hello : styles.wyn;
     return (
-      <header className={styles.clock}>
+      <div className={`${styles.clock} ${displayType}`}>
         <div className={styles.time}>
           {`${String(date.getHours()).padStart(2, "0")} : 
             ${String(date.getMinutes()).padStart(2, "0")}`}
@@ -37,7 +39,7 @@ class Clock extends Component {
             "0"
           )}-${String(date.getDate()).padStart(2, "0")}`}
         </div>
-      </header>
+      </div>
     );
   }
 }

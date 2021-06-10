@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class ToDoItem extends Component {
   handleRemove = () => {
-    this.props.onToDo(this.props.toDo);
+    this.props.popToDo(this.props.toDo);
   };
 
   render() {

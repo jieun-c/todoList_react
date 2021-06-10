@@ -7,17 +7,15 @@ class InputToDo extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const toDo = this.inputRef.current.value;
-    this.props.pushToDo(toDo);
+    toDo && this.props.pushToDo(toDo);
     this.formRef.current.reset();
   };
 
   render() {
     return (
-      <div className="inputTodo">
-        <form ref={this.formRef} onSubmit={this.handleSubmit}>
-          <input type="text" ref={this.inputRef} />
-        </form>
-      </div>
+      <form ref={this.formRef} onSubmit={this.handleSubmit}>
+        <input type="text" ref={this.inputRef} />
+      </form>
     );
   }
 }
