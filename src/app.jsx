@@ -1,12 +1,13 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import styles from "./app.module.css";
 import Clock from "./components/clock/clock";
 import InputUser from "./components/input_user/input_user";
 import OutputUser from "./components/output_user/output_user";
 import InputToDo from "./components/input_todo/input_todo";
 import ToDoList from "./components/todolist/todolist";
+import Temperature from "./components/temperature/temperature";
 
-class App extends Component {
+class App extends PureComponent {
   // localStorage 에서 가져올때는 다시 객체로 변환해야한다! (parse)
   state = {
     currentUser: localStorage.getItem("currentUser"),
@@ -58,24 +59,24 @@ class App extends Component {
         </header>
 
         {currentUser ? (
-          <section className="todoList">
+          <section className={styles.hello}>
             <OutputUser name={currentUser} />
             <InputToDo pushToDo={this.pushToDo} />
             <ToDoList toDos={this.state.toDos} popToDo={this.popToDo} />
           </section>
         ) : (
-          <section className="inputUser">
+          <section className={styles.wyn}>
             <InputUser pushUser={this.pushUser} />
           </section>
         )}
 
         <footer>
           {currentUser && (
-            <button className="resetBtn" onClick={this.resetAll}>
+            <button className={styles.resetBtn} onClick={this.resetAll}>
               Reset
             </button>
           )}
-          <div>온도 컴포넌트</div>
+          <Temperature />
         </footer>
       </div>
     );

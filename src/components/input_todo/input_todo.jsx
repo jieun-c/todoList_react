@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 
-class InputToDo extends Component {
+class InputToDo extends PureComponent {
   formRef = React.createRef();
   inputRef = React.createRef();
 
@@ -14,7 +14,11 @@ class InputToDo extends Component {
   render() {
     return (
       <form ref={this.formRef} onSubmit={this.handleSubmit}>
-        <input type="text" ref={this.inputRef} />
+        <input
+          type="text"
+          ref={this.inputRef}
+          placeholder="What is your plan for today?"
+        />
       </form>
     );
   }

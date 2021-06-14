@@ -1,13 +1,11 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 
-class OutputUser extends Component {
+class OutputUser extends PureComponent {
   render() {
     return (
-      <>
-        <h1>
-          Hello, <span>{this.props.name}</span>!
-        </h1>
-      </>
+      <h1>
+        Hello, <span>{this.props.name}</span>!
+      </h1>
     );
   }
 }

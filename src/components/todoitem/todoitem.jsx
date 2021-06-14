@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
+import styles from "./todoitem.module.css";
 
-class ToDoItem extends Component {
+class ToDoItem extends PureComponent {
   handleRemove = () => {
     this.props.popToDo(this.props.toDo);
   };
@@ -8,12 +9,14 @@ class ToDoItem extends Component {
   render() {
     const { key, toDo } = this.props.toDo;
     return (
-      <li>
-        <input type="checkbox" id={key} />
+      <li className={styles.list}>
+        <input type="checkbox" className={styles.check} id={key} />
         <label htmlFor={key}>
-          <span>{toDo}</span>
+          <span className={styles.todo}>{toDo}</span>
         </label>
-        <button onClick={this.handleRemove}>❌</button>
+        <button className={styles.deleteBtn} onClick={this.handleRemove}>
+          ❌
+        </button>
       </li>
     );
   }

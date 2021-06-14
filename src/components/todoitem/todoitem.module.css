@@ -1,0 +1,32 @@
+.list {
+  background-color: rgba(255, 255, 255, 0.8);
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1em 2em 1em 1em;
+  box-sizing: border-box;
+}
+.list:hover {
+  background-color: white;
+}
+.list > label {
+  width: 100%;
+  margin: 0 1em 0 0.5em;
+  cursor: pointer;
+}
+.check {
+  width: 1.2em;
+  height: 1.2em;
+  cursor: pointer;
+}
+.todo {
+  font-size: 1.2rem;
+}
+.deleteBtn {
+  all: unset;
+  width: 1.2em;
+  height: 1.2em;
+  cursor: pointer;
+}

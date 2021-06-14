@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import styles from "./todolist.module.css";
 import ToDoItem from "../todoitem/todoitem";
 
 class ToDoList extends Component {
@@ -9,14 +10,12 @@ class ToDoList extends Component {
   render() {
     const { toDos } = this.props;
     return (
-      <div className="list">
-        <ul>
-          {toDos &&
-            toDos.map((item) => (
-              <ToDoItem key={item.key} toDo={item} popToDo={this.popToDo} />
-            ))}
-        </ul>
-      </div>
+      <ul className={styles.listBox}>
+        {toDos &&
+          toDos.map((item) => (
+            <ToDoItem key={item.key} toDo={item} popToDo={this.popToDo} />
+          ))}
+      </ul>
     );
   }
 }

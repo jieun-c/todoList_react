@@ -27,7 +27,7 @@
 
 .clock.hello {
   align-items: flex-end;
-  margin: 2em;
+  margin: 2em 0;
 }
 .hello > .time {
   font-size: 1.5rem;
