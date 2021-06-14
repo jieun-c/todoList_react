@@ -41,6 +41,26 @@ class App extends PureComponent {
     this.saveTodo(toDos);
   };
 
+  handleCheck = (checkEvent, toDo) => {
+    if (checkEvent === true) {
+      const toDos = this.state.toDos.map((item) => {
+        if (item.key === toDo.key) {
+          return { ...toDo, isChecked: true };
+        }
+        return item;
+      });
+      this.saveTodo(toDos);
+    } else {
+      const toDos = this.state.toDos.map((item) => {
+        if (item.key === toDo.key) {
+          return { ...toDo, isChecked: false };
+        }
+        return item;
+      });
+      this.saveTodo(toDos);
+    }
+  };
+
   resetAll = () => {
     localStorage.clear();
     this.setState({
@@ -62,7 +82,11 @@ class App extends PureComponent {
           <section className={styles.hello}>
             <OutputUser name={currentUser} />
             <InputToDo pushToDo={this.pushToDo} />
-            <ToDoList toDos={this.state.toDos} popToDo={this.popToDo} />
+            <ToDoList
+              toDos={this.state.toDos}
+              popToDo={this.popToDo}
+              onCheck={this.handleCheck}
+            />
           </section>
         ) : (
           <section className={styles.wyn}>

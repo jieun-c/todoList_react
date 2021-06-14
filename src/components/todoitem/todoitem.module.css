@@ -24,6 +24,9 @@
 .todo {
   font-size: 1.2rem;
 }
+.todo.toDoDone {
+  text-decoration: line-through;
+}
 .deleteBtn {
   all: unset;
   width: 1.2em;
