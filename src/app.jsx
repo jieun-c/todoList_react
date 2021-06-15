@@ -5,13 +5,14 @@ import InputUser from "./components/input_user/input_user";
 import OutputUser from "./components/output_user/output_user";
 import InputToDo from "./components/input_todo/input_todo";
 import ToDoList from "./components/todolist/todolist";
-import Temperature from "./components/temperature/temperature";
+import Weather from "./components/weather/weather";
 
 class App extends PureComponent {
   // localStorage 에서 가져올때는 다시 객체로 변환해야한다! (parse)
   state = {
     currentUser: localStorage.getItem("currentUser"),
     toDos: JSON.parse(localStorage.getItem("toDos")),
+    geo: {},
   };
 
   pushUser = (user) => {
@@ -61,6 +62,10 @@ class App extends PureComponent {
     }
   };
 
+  pushGEO = (lat, lon) => {
+    this.setState({ geo: { lat, lon } });
+  };
+
   resetAll = () => {
     localStorage.clear();
     this.setState({
@@ -100,7 +105,7 @@ class App extends PureComponent {
               Reset
             </button>
           )}
-          <Temperature />
+          <Weather pushGEO={this.pushGEO} />
         </footer>
       </div>
     );
