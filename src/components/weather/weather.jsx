@@ -39,7 +39,7 @@ class Weather extends PureComponent {
   render() {
     const { city, weather } = this.state;
     this.askGEO();
-    return <span>{`${city} @ ${weather}`}</span>;
+    return <span>{city && `${city} @ ${weather}`}</span>;
   }
 }
 
