@@ -1,21 +1,45 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 
-class Weather extends Component {
+class Weather extends PureComponent {
+  key = "b64e98039f142949909b14901bc0d20d";
+  state = {
+    city: null,
+    weather: null,
+  };
+
+  getWeather = (lat, lon) => {
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${this.key}&units=metric`;
+
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        const city = data.name;
+        const weather = data.weather[0].main;
+
+        this.setState({ city, weather });
+      });
+  };
+
   onGeoOk = (position) => {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
 
-    // weather-fetch 까지 전달
-    this.props.pushGEO(lat, lon);
+    this.getWeather(lat, lon);
   };
 
   onGeoError = () => {
     alert("Can't find you. No weather for you.");
   };
 
-  render() {
+  askGEO = () => {
     navigator.geolocation.getCurrentPosition(this.onGeoOk, this.onGeoError);
-    return <span>패치된 온도/위치</span>;
+  };
+
+  // 지역과 날씨를 props로 받아옴
+  render() {
+    const { city, weather } = this.state;
+    this.askGEO();
+    return <span>{`${city} @ ${weather}`}</span>;
   }
 }
 
