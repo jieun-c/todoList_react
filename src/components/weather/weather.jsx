@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 
 class Weather extends PureComponent {
-  key = "b64e98039f142949909b14901bc0d20d";
+  key = "8bba255df395b5f5edcd31836fcb2e16";
   state = {
     city: null,
     weather: null,
