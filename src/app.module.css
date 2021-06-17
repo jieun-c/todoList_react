@@ -9,9 +9,10 @@ body > *,
   width: 100%;
   height: 100%;
 }
+
 body {
-  background-color: rgb(85, 85, 85);
   color: white;
+  background-color: rgb(51, 51, 51);
 }
 
 .container {
@@ -19,6 +20,13 @@ body {
   flex-direction: column;
   padding: 0 5em;
   box-sizing: border-box;
+  background: linear-gradient(
+      to bottom,
+      rgba(20, 20, 20, 0.1) 10%,
+      rgba(20, 20, 20, 0.7) 90%
+    ),
+    url(https://source.unsplash.com/random/1920x1080);
+  background-size: cover;
 }
 
 section {
